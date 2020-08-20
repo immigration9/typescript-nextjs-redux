@@ -15,7 +15,7 @@ const Footer = () => {
   const dispatch = useDispatch();
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <div
         style={{ backgroundColor: filter === SHOW_ALL ? "red" : "white" }}
         onClick={() =>
