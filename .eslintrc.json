@@ -1,28 +1,35 @@
 {
-  "parser": "babel-eslint",
-  "plugins": ["react", "react-hooks"],
-  "extends": "react-app",
+  "extends": [
+    "airbnb-typescript",
+    "react-app",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react"
+  ],
   "parserOptions": {
     "ecmaVersion": 2018,
+    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "project": "./tsconfig.json"
   },
   "rules": {
-    "react/react-in-jsx-scope": 0
-  },
-  "overrides": [
-    {
-      "files": ["**/*.ts?(x)"],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module",
-        "ecmaFeatures": {
-          "jsx": true
-        }
-      },
-      "plugins": ["@typescript-eslint"]
-    }
-  ]
+    "react/react-in-jsx-scope": 0,
+    "react/prop-types": 0,
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "exceptions": ["Component"]
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        "allowExpressions": true
+      }
+    ]
+  }
 }

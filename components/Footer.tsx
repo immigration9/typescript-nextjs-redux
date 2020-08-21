@@ -8,7 +8,7 @@ import {
   VisibilityActionTypes,
 } from "../actions/VisibilityActions.types";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   const filter = useSelector<RootState, string>(
     (state) => state.visibilityFilter.filter
   );
@@ -16,20 +16,22 @@ const Footer = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <div
+      <button
+        type="button"
         style={{ backgroundColor: filter === SHOW_ALL ? "red" : "white" }}
-        onClick={() =>
+        onClick={(): void => {
           dispatch<VisibilityActionTypes>({
             type: SET_VISIBILITY_FILTER,
             filter: SHOW_ALL,
-          })
-        }
+          });
+        }}
       >
         SHOW ALL
-      </div>
-      <div
+      </button>
+      <button
+        type="button"
         style={{ backgroundColor: filter === SHOW_COMPLETED ? "red" : "white" }}
-        onClick={() => {
+        onClick={(): void => {
           dispatch<VisibilityActionTypes>({
             type: SET_VISIBILITY_FILTER,
             filter: SHOW_COMPLETED,
@@ -37,10 +39,11 @@ const Footer = () => {
         }}
       >
         SHOW COMPLETED
-      </div>
-      <div
+      </button>
+      <button
+        type="button"
         style={{ backgroundColor: filter === SHOW_ACTIVE ? "red" : "white" }}
-        onClick={() => {
+        onClick={(): void => {
           dispatch<VisibilityActionTypes>({
             type: SET_VISIBILITY_FILTER,
             filter: SHOW_ACTIVE,
@@ -48,7 +51,7 @@ const Footer = () => {
         }}
       >
         SHOW ACTIVE
-      </div>
+      </button>
     </div>
   );
 };

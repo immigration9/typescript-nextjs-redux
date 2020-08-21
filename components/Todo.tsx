@@ -4,15 +4,16 @@ interface Props {
   text: string;
 }
 
-const Todo = ({ onClick, completed, text }: Props) => (
-  <li
+const Todo: React.FC<Props> = ({ onClick, completed, text }) => (
+  <button
+    type="button"
     onClick={onClick}
     style={{
       textDecoration: completed ? "line-through" : "none",
     }}
   >
     {text}
-  </li>
+  </button>
 );
 
 export default Todo;

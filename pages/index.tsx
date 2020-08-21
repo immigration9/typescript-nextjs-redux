@@ -4,14 +4,18 @@ import AddTodo from "../components/AddTodo";
 import TodoList from "../components/TodoList";
 import Footer from "../components/Footer";
 
-export default function Home() {
+const Home: React.FC = () => {
   const router = useRouter();
   return (
     <div>
       <AddTodo />
       <TodoList />
       <Footer />
-      <button onClick={() => router.push("/store")}>Go to Store</button>
+      <button type="button" onClick={() => router.push("/store")}>
+        Go to Store
+      </button>
     </div>
   );
-}
+};
+
+export default Home;

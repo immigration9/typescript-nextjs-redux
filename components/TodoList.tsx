@@ -11,7 +11,7 @@ import {
   SHOW_ACTIVE,
 } from "../actions/VisibilityActions.types";
 
-const TodoList = () => {
+const TodoList: React.FC = () => {
   const todos = useSelector<RootState, TodoState>((state) => state.todos);
   const filter = useSelector<RootState, string>(
     (state) => state.visibilityFilter.filter
@@ -34,11 +34,12 @@ const TodoList = () => {
     <ul>
       {visibleTodos.map((todo) => (
         <Todo
+          completed={todo.completed}
+          text={todo.text}
           key={todo.id}
-          {...todo}
-          onClick={() =>
-            dispatch<TodoActionTypes>({ type: TOGGLE_TODO, id: todo.id })
-          }
+          onClick={() => {
+            dispatch<TodoActionTypes>({ type: TOGGLE_TODO, id: todo.id });
+          }}
         />
       ))}
     </ul>

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../reducers";
 import { TodoState } from "../interfaces/todo";
 
-export default function Store() {
+const Store: React.FC = () => {
   const router = useRouter();
   const todos = useSelector<RootState, TodoState>((state) => state.todos);
   return (
@@ -19,4 +19,6 @@ export default function Store() {
       </button>
     </div>
   );
-}
+};
+
+export default Store;
